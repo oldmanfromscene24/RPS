@@ -1,18 +1,13 @@
 function getComputerChoice () {
-    nChoice = Math.floor(Math.random() * 3)
-    switch(nChoice) {
-        case 0:
-            return "rock";
-        case 1:
-            return "paper";
-        case 2:
-            return "scissors";
-    }
+    const computerChoice = ["rock", "paper", "scissors"];
+    return computerChoice[Math.floor(Math.random() * 3)];
 }
+
 
 function playRound (playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
-        switch(playerSelection) { //returns the winner, if any
+
+        switch(playerSelection) { //returns the winner if any
         case "rock": 
             if (computerSelection === "paper")
                 return "computer";
@@ -30,10 +25,12 @@ function playRound (playerSelection, computerSelection) {
                 return "computer";
             else if (computerSelection === "paper")
                 return "player";
+            break;             
     }
 
-    return "tie";//returns "tie"... If it's a tie
+    return "tie";
 }
+
 
 function playGame () {
     let playerCount = 0;
@@ -60,13 +57,12 @@ function playGame () {
             case "tie":
                 tieCount++;
                 alert(tieWin);
-
         }
     }
+
     if (playerCount > computerCount)
-        alert("Player wins " + playerCount + "-" + computerCount + " , " + tieCount + " tie()s!");
+        alert("Player wins " + playerCount + "-" + computerCount + " , " + tieCount + " tie(s)!");
     else if (playerCount < computerCount)
         alert("Computer wins " + computerCount + "-" + playerCount + " , " + tieCount + " tie(s)!");
-    else alert("Global tie! " + ttieCount + " tie(s) , " + playerCount + " wins each!")
-
+    else alert("Global tie! " + tieCount + " tie(s) , " + playerCount + " wins each!")
 }
